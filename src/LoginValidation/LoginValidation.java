@@ -29,7 +29,7 @@ public void Verifylogincredentials( String Scenario, String Username, String Pas
 	if(Scenario.equals("ValidIDPassword")) {
 		
 		// layout = driver.findElement(By.id("layout"));
-		WebElement CustomerName = driver.findElement(By.xpath("//h3"));
+		WebElement CustomerName = driver.findElement(By.xpath("//font[contains(text(),'Priyanka Ragupathy')]"));
 		
 		Assert.assertTrue(CustomerName.isDisplayed(),"Login not success");
 	}
@@ -37,7 +37,7 @@ public void Verifylogincredentials( String Scenario, String Username, String Pas
 	else if (Scenario.equals("IncorrectUsername")) {
 		
 		
-		String ErrorMessage = driver.findElement(By.xpath("//*[@id=\"content\"]/article/div/div/div[1]/div/div/aside/div[2]/font/font[1]")).getText();
+		String ErrorMessage = driver.findElement(By.xpath("//div[@class='l-flex__primary u-no-margin u-padding--ends m-Notification__message']")).getText();
 		Assert.assertEquals(ErrorMessage, "E-mail address and/or password are incorrect. ");
 		
 	}
@@ -45,14 +45,14 @@ public void Verifylogincredentials( String Scenario, String Username, String Pas
 else if (Scenario.equals("IncorrectPassword")) {
 		
 		
-		String ErrorMessage = driver.findElement(By.xpath("//*[@id=\"content\"]/article/div/div/div[1]/div/div/aside/div[2]/font/font[1]")).getText();
+		String ErrorMessage = driver.findElement(By.xpath("//div[@class='l-flex__primary u-no-margin u-padding--ends m-Notification__message']")).getText();
 		Assert.assertEquals(ErrorMessage, "E-mail address and/or password are incorrect. ");
 		
 }
 else if (Scenario.equals("InValidIDPassword")) {
 	
 	
-	String ErrorMessage = driver.findElement(By.xpath("//*[@id=\"content\"]/article/div/div/div[1]/div/div/aside/div[2]/font/font[1]")).getText();
+	String ErrorMessage = driver.findElement(By.xpath("//div[@class='l-flex__primary u-no-margin u-padding--ends m-Notification__message']")).getText();
 	Assert.assertEquals(ErrorMessage, "E-mail address and/or password are incorrect. ");
 	
 }
